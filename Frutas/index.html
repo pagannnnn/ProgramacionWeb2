@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de compras</title>
+</head>
+<body>
+
+    <h1>🛒 Carrito de compras</h1>
+    <p>Abre la consola para ver el carrito final</p>
+
+    <button onclick="iniciarCarrito()">Iniciar programa</button>
+
+    <script>
+        function iniciarCarrito() {
+            const carrito = [];
+
+            let continuar = true;
+
+            while (continuar) {
+
+                let producto = prompt("Escribe algo para agregar al carrito:");
+
+                if (producto === null || producto.trim() === "") {
+                    alert("No ingresaste un producto válido");
+                } else {
+                    if (confirm("¿Quieres agregar '" + producto + "' al carrito?")) {
+                        carrito.push(producto.trim());
+                    }
+                }
+
+                continuar = confirm("¿Quieres agregar otro producto?");
+            }
+
+            console.log("Carrito final:", carrito);
+            alert("Revisa la consola para ver tu carrito 🧠");
+        }
+        
+    </script>
+    <script src="frutas.js"></script>
+</body>
+</html>
