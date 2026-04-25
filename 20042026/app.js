@@ -1,18 +1,18 @@
-// Arreglo donde se almacenan los usuarios
+
 let usuarios = [];
 
-// Referencias al DOM
+
 const form = document.getElementById("formUsuario");
 const tabla = document.getElementById("tablaUsuarios");
 const inputArchivo = document.getElementById("importarJSON");
 const descargarBtn = document.getElementById("descargarBtn");
 
-// Generar ID automático
+
 function generarID() {
     return usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id)) + 1 : 1;
 }
 
-// Evento para agregar usuarios
+
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -36,7 +36,7 @@ form.addEventListener("submit", function (e) {
     form.reset();
 });
 
-// Mostrar usuarios en la tabla
+
 function mostrarUsuarios() {
     tabla.innerHTML = "";
 
@@ -60,7 +60,7 @@ function mostrarUsuarios() {
     });
 }
 
-// Función para editar campos
+
 function editarCampo(index, campo, valor) {
     if (valor.trim() === "") {
         alert("El campo no puede estar vacío");
@@ -71,7 +71,7 @@ function editarCampo(index, campo, valor) {
     usuarios[index][campo] = valor.trim();
 }
 
-// Función para eliminar usuarios
+
 function eliminarUsuario(index) {
     const confirmar = confirm("¿Estás seguro de eliminar este usuario?");
 
@@ -81,7 +81,7 @@ function eliminarUsuario(index) {
     }
 }
 
-// Importar archivo JSON
+
 inputArchivo.addEventListener("change", function (e) {
     const archivo = e.target.files[0];
 
@@ -110,7 +110,6 @@ inputArchivo.addEventListener("change", function (e) {
     lector.readAsText(archivo);
 });
 
-// Descargar usuarios como JSON
 descargarBtn.addEventListener("click", function () {
     const contenidoJSON = JSON.stringify(usuarios, null, 2);
 
